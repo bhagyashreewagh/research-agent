@@ -4,68 +4,91 @@
 
 @layer base {
   body {
-    @apply bg-[#080c10] text-slate-200 antialiased;
+    background-color: #FAF8F5;
+    color: #1C1410;
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
-@layer utilities {
-  .scrollbar-thin {
-    scrollbar-width: thin;
-    scrollbar-color: #1e293b transparent;
-  }
-}
-
-/* Fade-in animation for agent steps */
+/* ── Fade-in animation ─────────────────────────────────────────────────────── */
 @keyframes fadeSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+.fade-in { animation: fadeSlideIn 0.3s ease-out forwards; }
 
-.fade-in {
-  animation: fadeSlideIn 0.25s ease-out forwards;
-}
-
-/* Pulse dot */
+/* ── Pulse dot ─────────────────────────────────────────────────────────────── */
 @keyframes pulseDot {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  50%       { opacity: 0.25; }
+}
+.pulse-dot { animation: pulseDot 1.4s ease-in-out infinite; }
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────────── */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #DDD3C8 transparent;
 }
 
-.pulse-dot {
-  animation: pulseDot 1.2s ease-in-out infinite;
-}
-
-/* Markdown report styles */
+/* ── Report markdown ───────────────────────────────────────────────────────── */
 .report-body h2 {
-  @apply text-xl font-bold text-slate-100 mt-8 mb-3 border-b border-slate-700 pb-2;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #1C1410;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #E8E0D6;
+  letter-spacing: 0.01em;
 }
 .report-body h3 {
-  @apply text-base font-semibold text-slate-200 mt-5 mb-2;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #3E2D26;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.01em;
 }
 .report-body p {
-  @apply text-slate-300 leading-relaxed mb-3;
+  color: #4A3830;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
 }
-.report-body ul {
-  @apply list-disc list-inside space-y-1 text-slate-300 mb-3;
+.report-body ul, .report-body ol {
+  color: #4A3830;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
 }
-.report-body ol {
-  @apply list-decimal list-inside space-y-1 text-slate-300 mb-3;
-}
+.report-body li { margin-bottom: 0.25rem; }
 .report-body a {
-  @apply text-brand-400 hover:text-brand-300 underline underline-offset-2;
+  color: #7A5A4A;
+  text-decoration: underline;
+  text-decoration-color: #C8BAB0;
+  text-underline-offset: 3px;
+  transition: color 0.15s;
 }
-.report-body strong {
-  @apply text-slate-100 font-semibold;
-}
+.report-body a:hover { color: #8B6B5B; }
+.report-body strong { color: #1C1410; font-weight: 600; }
 .report-body code {
-  @apply bg-slate-800 text-brand-300 px-1.5 py-0.5 rounded text-sm font-mono;
+  background: #F2EDE6;
+  color: #7A5A4A;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: "SF Mono", "Fira Code", monospace;
 }
 .report-body blockquote {
-  @apply border-l-4 border-brand-600 pl-4 italic text-slate-400 my-4;
+  border-left: 3px solid #C8BAB0;
+  padding-left: 1.25rem;
+  color: #6B5B52;
+  font-style: italic;
+  margin: 1.5rem 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.05rem;
 }

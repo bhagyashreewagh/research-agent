@@ -3,30 +3,29 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      colors: {
-        brand: {
-          50:  "#edfcfc",
-          100: "#d2f6f6",
-          200: "#a9eded",
-          300: "#6fe0e0",
-          400: "#2ecbcb",
-          500: "#14b0b0",
-          600: "#0e8d8d",
-          700: "#0f7070",
-          800: "#115a5a",
-          900: "#134b4b",
-        },
+      fontFamily: {
+        serif: ["Cormorant Garamond", "Georgia", "serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
-      typography: {
-        DEFAULT: {
-          css: {
-            color: "#e2e8f0",
-            a: { color: "#2ecbcb" },
-            h2: { color: "#f1f5f9" },
-            h3: { color: "#cbd5e1" },
-            strong: { color: "#f1f5f9" },
-            code: { color: "#2ecbcb" },
-          },
+      colors: {
+        cream: {
+          50:  "#FFFEF C",
+          100: "#FAF8F5",
+          200: "#F2EDE6",
+          300: "#E8E0D6",
+          400: "#DDD3C8",
+          500: "#C8BAB0",
+        },
+        warm: {
+          100: "#F5EDE6",
+          200: "#E8D8CC",
+          300: "#D4B8A8",
+          400: "#B8917E",
+          500: "#8B6B5B",
+          600: "#7A5A4A",
+          700: "#64493C",
+          800: "#3E2D26",
+          900: "#1C1410",
         },
       },
     },

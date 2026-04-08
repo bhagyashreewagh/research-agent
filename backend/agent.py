@@ -1,12 +1,24 @@
+import asyncio
 import json
 import os
-from typing import AsyncGenerator
+from pathlib import Path
+from typing import AsyncGenerator, Optional
 
 import anthropic
+from dotenv import load_dotenv
 
 from .tools import search_web, scrape_page
 
-client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
+load_dotenv(Path(__file__).parent.parent / ".env", override=True)
+
+_client: Optional[anthropic.Anthropic] = None
+
+
+def get_client() -> anthropic.Anthropic:
+    global _client
+    if _client is None:
+        _client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    return _client
 
 # ── Tool schemas ──────────────────────────────────────────────────────────────
 
@@ -96,12 +108,13 @@ async def run_research_agent(query: str) -> AsyncGenerator[str, None]:
     for iteration in range(max_iterations):
         yield event({"type": "thinking", "content": "Planning next steps…"})
 
-        response = client.messages.create(
+        response = await asyncio.to_thread(
+            get_client().messages.create,
             model="claude-sonnet-4-6",
             max_tokens=8096,
             system=SYSTEM_PROMPT,
-            tools=TOOLS,  # type: ignore[arg-type]
-            messages=messages,  # type: ignore[arg-type]
+            tools=TOOLS,
+            messages=messages,
         )
 
         # Separate text blocks from tool calls
