@@ -10,3 +10,4 @@ backend/dist/
 *.egg-info/
 dist/
 build/
+.claude/
