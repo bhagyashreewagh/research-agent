@@ -1,6 +1,6 @@
 # Research Agent
 
-An autonomous AI research agent powered by the Claude API. Give it any question and it searches the web, reads sources, and writes a comprehensive cited report — all on its own.
+An autonomous AI research agent powered by the Claude API. Give it any question and it searches the web, reads sources, and writes a comprehensive cited report, all on its own.
 
 **Live demo:** https://research-agent-fk51.onrender.com
 
@@ -17,7 +17,7 @@ An autonomous AI research agent powered by the Claude API. Give it any question 
 5. It decides whether it needs more info or is ready to write
 6. It produces a full markdown report with citations
 
-The entire process streams live to the UI — you can watch it think, search, and read in real time.
+The entire process streams live to the UI so you can watch it think, search, and read in real time.
 
 ---
 
@@ -112,5 +112,5 @@ research-agent/
 
 ## API keys needed
 
-- **Anthropic API key** — https://console.anthropic.com
-- **Tavily API key** — https://tavily.com (free tier available)
+- **Anthropic API key**: https://console.anthropic.com
+- **Tavily API key**: https://tavily.com (free tier available)
